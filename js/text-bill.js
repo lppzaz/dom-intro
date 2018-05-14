@@ -45,11 +45,11 @@ function TextBill() {
   }
 
   return {
-    billItem: billType,
+    billItem:   billType,
     callsTotal: getCalls,
-    smsTotal: getSmses,
-    totalBill: getTotals,
-    color: colorchange
+    smsTotal:   getSmses,
+    totalBill:  getTotals,
+    color:      colorchange
   }
 
 }
@@ -57,9 +57,9 @@ function TextBill() {
 var textBill = TextBill()
 
 function textBillTotal(){
+var billItemOne = billTypeEntered.value.trim();
 if (billItemOne){
-    var billItemOne = billTypeEntered.value.trim();
-    textBill.billItem(billItemOne);
+textBill.billItem(billItemOne);
 }
 callOne.innerHTML = textBill.callsTotal();
 smsOne.innerHTML = textBill.smsTotal();

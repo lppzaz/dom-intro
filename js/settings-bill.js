@@ -84,7 +84,7 @@ function SettingsBill() {
 
   return {
     //function aliases (remember to write () to call funtions)
-    billItem:   billType,
+    billItem:     billType,
     callsTotal:   getCalls,
     smsTotal:     getSmses,
     totalBill:    getTotals,
@@ -120,8 +120,6 @@ function settingsBillTotal(){
   var classColor = settingsBill.color();
   settingsTotalElem.classList.add(classColor);
   //stop total updating once critical level is reached
-
-
 
 
 }
