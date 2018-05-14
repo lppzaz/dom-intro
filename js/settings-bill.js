@@ -64,28 +64,36 @@ function SettingsBill() {
 
   function getTotals(){
     return total.toFixed(2)
+
   }
 
+  function isCritical(){
+    return total >= critical;
+  }
+
+
   function colorchange(){
-    if (total >= 50){
+    if (total >= critical){
         // adding the danger class will make the text red
       return "danger";
     }
-    else if (total >= 30){
+    else if (total >= warning){
       return "warning";
     }
   }
 
   return {
+    //function aliases (remember to write () to call funtions)
     billItem:   billType,
-    callsTotal: getCalls,
-    smsTotal:   getSmses,
-    totalBill:  getTotals,
-    color:      colorchange,
-    callCost:   setCallCost,
-    smsCost:    setSmsCost,
-    critical:   criticalLevel,
-    warning:    warningLevel,
+    callsTotal:   getCalls,
+    smsTotal:     getSmses,
+    totalBill:    getTotals,
+    color:        colorchange,
+    callCost:     setCallCost,
+    smsCost:      setSmsCost,
+    critical:     criticalLevel,
+    warning:      warningLevel,
+    overCritical: isCritical,
   }
 
 }
@@ -95,6 +103,11 @@ var settingsBill = SettingsBill();
 
 //add an event listener for when the add button is pressed
 function settingsBillTotal(){
+
+  if (settingsBill.overCritical()){
+    return
+  }
+
   var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
   if (checkedRadioBtn){
     var billItem = checkedRadioBtn.value;
@@ -106,6 +119,8 @@ function settingsBillTotal(){
   // set critical level colorchange
   var classColor = settingsBill.color();
   settingsTotalElem.classList.add(classColor);
+  //stop total updating once critical level is reached
+
 
 
 
