@@ -76,7 +76,7 @@ function SettingsBill() {
     if (total >= critical){
         // adding the danger class will make the text red
       return "danger";
-    }
+    }  // waring class makes the text orange
     else if (total >= warning){
       return "warning";
     }
@@ -101,9 +101,9 @@ function SettingsBill() {
 var settingsBill = SettingsBill();
 
 
-//add an event listener for when the add button is pressed
-function settingsBillTotal(){
 
+function settingsBillTotal(){
+// created if statement that checks overCritical and prevents adds after crit level is reached.
   if (settingsBill.overCritical()){
     return
   }
