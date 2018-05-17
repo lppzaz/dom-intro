@@ -5,7 +5,7 @@ var callOne = document.querySelector('.callTotalOne');
 var smsOne = document.querySelector('.smsTotalOne');
 var textBillTotal = document.querySelector('.totalOne');
 
-console.log(billTypeEntered.value);
+
 
 function TextBill() {
   //create a variable that will keep track of the total bill
