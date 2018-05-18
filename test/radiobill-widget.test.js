@@ -18,7 +18,7 @@ describe('Checks radiobill values functions', function() {
   });
   it('Checks total > 30 triggers alert function returns the (warning)', function(){
     var text2Test = TextBill();
-    // Fill up the total to reach the threshold
+    // checks index value, if it is less than warning level keeps adding until it reaches warning level.
     for (var i = 0; i < 30; i++) {
       text2Test.billItem('call');
       text2Test.billItem('sms');
