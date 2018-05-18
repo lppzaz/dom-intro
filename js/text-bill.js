@@ -1,12 +1,3 @@
-//get a reference to the add button
-var billTypeEntered = document.querySelector('.billTypeText');
-var textBillAdd = document.querySelector('.addToBillBtn');
-var callOne = document.querySelector('.callTotalOne');
-var smsOne = document.querySelector('.smsTotalOne');
-var textBillTotal = document.querySelector('.totalOne');
-
-
-
 function TextBill() {
   //create a variable that will keep track of the total bill
   var calls = 0;
@@ -54,23 +45,5 @@ function TextBill() {
   }
 
 }
-//creating an instance of Textbill FactoryForm
 var textBill = TextBill()
-
-function textBillFunc(){
-  if (billTypeEntered){
-    var billItemOne = billTypeEntered.value.trim();
-    textBill.billItem(billItemOne);
-  }
-
-  //referencing generic alias from factoryform and sets values t
-  callOne.innerHTML = textBill.callsTotal();
-  smsOne.innerHTML = textBill.smsTotal();
-  textBillTotal.innerHTML = textBill.totalBill();
-  // set critical level colorchange
-  var classColor = textBill.color();
-  textBillTotal.classList.add(classColor);
-}
-
-  //add an event listener for when the add button is pressed
-textBillAdd.addEventListener('click', textBillFunc);
+//creating an instance of Textbill FactoryForm

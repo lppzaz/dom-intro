@@ -1,4 +1,4 @@
-describe('Checks total value of phonebill', function(){
+describe('Checks calculateBill value of functions', function(){
   it('total phone bill with one call should return 2.75', function(){
     assert.equal(calcBill('call'), 2.75);
   });

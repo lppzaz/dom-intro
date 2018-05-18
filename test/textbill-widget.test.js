@@ -1,11 +1,29 @@
-describe('Checks total value of phonebill', function(){
-  it('total phone bill with one call should return 2.75', function(){
-    assert.equal(calcBill('call'), 2.75);
+describe('Checks textbill values functions', function() {
+  it('returns phone bill with one call should equal 2.75', function() {
+    var textTest = TextBill()
+    textTest.billItem('call')
+    assert.equal(textTest.callsTotal('call'), 2.75);
   });
-  it('total phone bill with one sms should return 0.75', function(){
-    assert.equal(calcBill('sms'), 0.75);
+  it('returns phone bill with one sms should equal 0.75', function() {
+    var textTest = TextBill()
+    textTest.billItem('sms')
+    assert.equal(textTest.smsTotal('sms'), 0.75);
   });
-  it('total phone bill with one sms and one call should return 3.50', function(){
-    assert.equal(calcBill('sms,call'), 3.50);
+  it('returns phone bill with one sms and two calls should equal 6.25', function() {
+    var textTest = TextBill()
+    textTest.billItem('sms')
+    textTest.billItem('call')
+    textTest.billItem('call')
+    assert.equal(textTest.totalBill('sms'), 6.25);
+  });
+  it('Checks total > 50 triggers alert function returns the (danger)', function(){
+    var textTest = TextBill();
+      // checks index value, if it is less than danger level keeps adding until it reaches danger level.
+    for (var i = 0; i < 50; i++) {
+      textTest.billItem('call');
+      textTest.billItem('sms');
+    }
+    return textTest.color
+    assert.equal(textTest.color, 'danger');
   });
 });
