@@ -7,14 +7,14 @@ describe('Checks textbill values functions', function() {
   it('returns phone bill with one sms should equal 0.75', function() {
     var textTest = TextBill()
     textTest.billItem('sms')
-    assert.equal(textTest.smsTotal('sms'), 0.75);
+    assert.equal(textTest.smsTotal(), 0.75);
   });
   it('returns phone bill with one sms and two calls should equal 6.25', function() {
     var textTest = TextBill()
     textTest.billItem('sms')
     textTest.billItem('call')
     textTest.billItem('call')
-    assert.equal(textTest.totalBill('sms'), 6.25);
+    assert.equal(textTest.totalBill(), 6.25);
   });
   it('Checks total > 50 triggers alert function returns the (danger)', function(){
     var textTest = TextBill();
@@ -23,7 +23,7 @@ describe('Checks textbill values functions', function() {
       textTest.billItem('call');
       textTest.billItem('sms');
     }
-    return textTest.color
-    assert.equal(textTest.color, 'danger');
+
+    assert.equal(textTest.color(), 'danger');
   });
 });
