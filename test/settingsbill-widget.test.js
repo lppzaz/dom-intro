@@ -38,7 +38,7 @@ describe('Checks settings bill for call', function() {
 
 
         });
-        it('checks value is not over critical level to stop further additions', function() {
+        it('checks value is not over critical level and allows further additions', function() {
 
             var newInstance = SettingsBill()
             newInstance.callCost(4);
